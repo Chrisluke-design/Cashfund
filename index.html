@@ -12,42 +12,66 @@
     background-color: #003333;
     color: #ffffff;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    align-items: flex-start; /* Changed from center to flex-start */
     justify-content: center;
     height: 100vh;
     text-align: center;
+    padding-top: 100px; /* Big gap from the top */
+  }
+
+  .outer-container {
+    width: 90%;
+    max-width: 600px;
+    padding: 10px;
+    box-sizing: border-box;
   }
 
   .container {
-    width: 90%;
-    max-width: 600px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ffffff; /* Small gap in the left, right, top, and bottom border */
+    box-sizing: border-box;
   }
 
   .box {
     width: 100%;
-    height: 200px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
   }
 
   .img-div img {
     width: 100%;
-    height: 100%;
+    height: 200px;
     object-fit: cover;
   }
 
-  .video-div video {
+  .video-div {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    margin: 20px 0;
+  }
+
+  .video-div iframe {
+    width: 100%;
+    height: 315px; /* Fixed dimensions similar to YouTube */
+  }
+
+  .description-div {
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    margin: 20px 0;
+    padding: 10px;
+    box-sizing: border-box;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
   }
 
   .text-div {
     font-size: 1.5em;
     font-weight: bold;
-    border: 5px solid #ffffff; /* Thick white border */
+    border: 5px solid #ffffff;
     padding: 10px;
     box-sizing: border-box;
   }
@@ -72,50 +96,43 @@
   .button-div a:hover {
     background-color: #cccccc;
   }
-
-  .description {
-    font-weight: bold;
-    margin: 20px 0;
-    text-align: justify;
-  }
 </style>
 </head>
 <body>
-  <div class="container">
-    <!-- First Div with Image -->
-    <div class="box img-div">
-      <img src="cashfund.png" alt="Placeholder Image">
-    </div>
+  <div class="outer-container">
+    <div class="container">
+      <!-- First Div with Image -->
+      <div class="box img-div">
+        <img src="cashfund.png" alt="Placeholder Image">
+      </div>
 
-    <!-- Video Section -->
-    <div class="box video-div">
-      <video controls>
-        <source src="cashfund_video.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-    </div>
+      <!-- Video Div -->
+      <div class="box video-div">
+        <iframe src="https://www.youtube.com/embed/example" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
 
-    <!-- Description Section -->
-    <div class="description">
-      Cashfund Contractors is a registered entity under the Legal Custody of Barrister Joy Chidimma Eze, a Recognised Legal Associate in Nigeria.<br><br>
-      A recognised member of CashFund Contractors helps individuals turn their savings into an Investment that brings them regular income.<br><br>
-      The Investment Secrets of CashFund Contractors are legal and not disclosed to anyone unless he/she has passed through the registration process of being a CashFund Contractor.<br><br>
-      After the Registration Process, you get Trained on the CashFund Contractors Investment Secrets, Easy Way to Get Clients, and then, you are given the First Sales Target for a Month.<br><br>
-      After one month of your First Sales Target, the Administrator offers you CashFund Contractors Licence in accordance with our Legal Policy.<br><br>
-      So long as you have CashFund Contractors Licence, you get monthly payment (based on your sales target commissions) plus Allowances (as at the interests of the Administrator).
-    </div>
+      <!-- Description -->
+      <div class="box description-div">
+        Cashfund Contractors is a registered entity under the Legal Custody of Barrister Joy Chidimma Eze, a Recognised Legal Associate in Nigeria.<br><br>
+        A recognised member of CashFund Contractors help individuals turn their savings into an Investment that brings them regular income.<br><br>
+        The Investment Secrets of CashFund Contractors are legal and not disclosed to anyone unless he/she has passed through the registration process of being a CashFund Contractor.<br><br>
+        After the Registration Process, you get Trained on the CashFund Contractors Investment Secrets, Easy Way to Get Clients, and then, you are given the First Sales Target for a Month.<br><br>
+        After one month of your First Sales Target, the Administrator offers you CashFund Contractors Licence in accordance with our Legal Policy.<br><br>
+        So long as you have CashFund Contractors Licence, you get monthly payment (based on your sales target commissions) plus Allowances (as at the interests of the Administrator).
+      </div>
 
-    <!-- Second Div with Changing Text and White Border -->
-    <div class="box text-div" id="changingText">
-      Work For 30 Days
-    </div>
+      <!-- Second Div with Changing Text and White Border -->
+      <div class="box text-div" id="changingText">
+        Work For 30 Days
+      </div>
 
-    <!-- Arrow pointing down -->
-    <div class="arrow">&#8595;</div>
+      <!-- Arrow pointing down -->
+      <div class="arrow">&#8595;</div>
 
-    <!-- Third Div with Button -->
-    <div class="box button-div">
-      <a href="https://wa.link/jywpo7" target="_blank">Become a CashFund Contractor</a>
+      <!-- Third Div with Button -->
+      <div class="box button-div">
+        <a href="https://wa.link/jywpo7" target="_blank">Become a CashFund Contractor</a>
+      </div>
     </div>
   </div>
 
