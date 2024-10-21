@@ -38,6 +38,12 @@
     object-fit: cover;
   }
 
+  .video-div video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
   .text-div {
     font-size: 1.5em;
     font-weight: bold;
@@ -66,6 +72,12 @@
   .button-div a:hover {
     background-color: #cccccc;
   }
+
+  .description {
+    font-weight: bold;
+    margin: 20px 0;
+    text-align: justify;
+  }
 </style>
 </head>
 <body>
@@ -73,6 +85,24 @@
     <!-- First Div with Image -->
     <div class="box img-div">
       <img src="cashfund.png" alt="Placeholder Image">
+    </div>
+
+    <!-- Video Section -->
+    <div class="box video-div">
+      <video controls>
+        <source src="cashfund_video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <!-- Description Section -->
+    <div class="description">
+      Cashfund Contractors is a registered entity under the Legal Custody of Barrister Joy Chidimma Eze, a Recognised Legal Associate in Nigeria.<br><br>
+      A recognised member of CashFund Contractors helps individuals turn their savings into an Investment that brings them regular income.<br><br>
+      The Investment Secrets of CashFund Contractors are legal and not disclosed to anyone unless he/she has passed through the registration process of being a CashFund Contractor.<br><br>
+      After the Registration Process, you get Trained on the CashFund Contractors Investment Secrets, Easy Way to Get Clients, and then, you are given the First Sales Target for a Month.<br><br>
+      After one month of your First Sales Target, the Administrator offers you CashFund Contractors Licence in accordance with our Legal Policy.<br><br>
+      So long as you have CashFund Contractors Licence, you get monthly payment (based on your sales target commissions) plus Allowances (as at the interests of the Administrator).
     </div>
 
     <!-- Second Div with Changing Text and White Border -->
