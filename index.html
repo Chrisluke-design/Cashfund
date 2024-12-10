@@ -9,64 +9,69 @@
     <link rel="manifest" href="manifest.json">
 
     <!-- Add meta tags for mobile PWA behavior -->
-    <meta name="theme-color" content="#2d89ef">
-    <meta name="description" content="Welcome to BillionaireHK">
+    <meta name="theme-color" content="#e0245e">
+    <meta name="description" content="Welcome to BillionaireHK - Your Path to Financial Growth">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="BillionaireHK">
 
-    <!-- Add custom styles -->
+    <!-- Add styles for layout -->
     <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            background: rgba(0, 0, 0, 0.8); /* Transparent shiny black background */
-            color: white;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
             text-align: center;
-            padding: 0 20px;
         }
-        .container {
-            max-width: 400px;
+
+        img {
+            max-width: 200px;
             width: 100%;
-        }
-        .logo {
-            max-width: 100%;
             height: auto;
             margin-bottom: 20px;
         }
-        .button {
-            display: block;
-            width: 100%;
-            padding: 15px;
-            margin: 10px 0;
+
+        button {
             background-color: #e0245e;
-            color: white;
+            color: #fff;
             border: none;
-            border-radius: 5px;
+            padding: 15px 30px;
             font-size: 16px;
-            font-weight: bold;
+            margin: 10px;
+            border-radius: 5px;
             cursor: pointer;
-            text-decoration: none;
-            text-align: center;
+            transition: background-color 0.3s ease;
         }
-        .button:hover {
-            background-color: #d01f55;
+
+        button:hover {
+            background-color: #c81e52;
+        }
+
+        button:focus {
+            outline: none;
+        }
+
+        @media (max-width: 600px) {
+            button {
+                width: 80%;
+                font-size: 14px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Logo -->
-        <img src="billionairehk.png" alt="BillionaireHK Logo" class="logo">
-        
-        <!-- Buttons -->
-        <a href="/signin" class="button">Sign In</a>
-        <a href="/create-account" class="button">Create New Account</a>
+    <img src="billionairehk.png" alt="BillionaireHK Logo">
+    <h1>Welcome to BillionaireHK</h1>
+    <div>
+        <button onclick="location.href='signin.html'">Sign In</button>
+        <button onclick="location.href='create-account.html'">Create New Account</button>
     </div>
 
     <script>
