@@ -5,18 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BillionaireHK</title>
 
-    <!-- Add a link to the manifest.json -->
+    <!-- Link to manifest.json -->
     <link rel="manifest" href="manifest.json">
 
-    <!-- Meta tags for mobile PWA behavior -->
-    <meta name="theme-color" content="#000000">
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#e0245e">
     <meta name="description" content="Welcome to BillionaireHK, your gateway to financial empowerment.">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="BillionaireHK">
 
-    <!-- Styling -->
+    <!-- CSS Styles -->
     <style>
         body {
             margin: 0;
@@ -25,15 +25,14 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
-            font-family: Arial, sans-serif;
+            height: 100vh;
             background: rgba(0, 0, 0, 0.9);
-            color: #ffffff;
+            font-family: Arial, sans-serif;
+            color: #fff;
         }
 
         .logo {
-            width: 20000px;
-            height: auto;
+            width: 200px;
             margin-bottom: 30px;
         }
 
@@ -46,45 +45,89 @@
         }
 
         button {
-            padding: 15px 20px;
+            padding: 15px;
             font-size: 16px;
             font-weight: bold;
             border: none;
             border-radius: 5px;
             background-color: #e0245e;
-            color: #fff;
+            color: white;
             cursor: pointer;
-            text-align: center;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s;
         }
 
         button:hover {
             background-color: #bf1e50;
         }
 
+        #install-button {
+            display: none;
+            padding: 15px;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
         @media (max-width: 600px) {
             .logo {
-                width: 120px;
+                width: 150px;
             }
 
             button {
                 font-size: 14px;
-                padding: 12px 16px;
+            }
+
+            #install-button {
+                font-size: 14px;
             }
         }
     </style>
 </head>
 <body>
     <!-- Logo -->
-    <img src="billionairehk1.png" alt="BillionaireHK Logo" class="logo">
+    <img src="billionairehk.png" alt="BillionaireHK Logo" class="logo">
 
     <!-- Buttons -->
     <div class="button-container">
-        <button onclick="location.href='https://billionairehk.com/login'">Sign In</button>
-        <button onclick="location.href='https://billionairehk.com/register'">Create New Account</button>
+        <button onclick="location.href='/signin'">Sign In</button>
+        <button onclick="location.href='/create-account'">Create New Account</button>
     </div>
 
+    <!-- Install Button (hidden initially) -->
+    <button id="install-button" onclick="installApp()">Install App</button>
+
+    <!-- Register Service Worker -->
     <script>
+        let deferredPrompt;
+        const installButton = document.getElementById('install-button');
+
+        // Listen for the beforeinstallprompt event
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // Prevent the default install prompt
+            e.preventDefault();
+            deferredPrompt = e;
+            installButton.style.display = 'block'; // Show the "Install App" button
+        });
+
+        // Handle the "Install App" button click
+        function installApp() {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('User accepted the A2HS prompt');
+                    } else {
+                        console.log('User dismissed the A2HS prompt');
+                    }
+                    deferredPrompt = null;
+                });
+            }
+        }
+
         // Register the service worker
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('/service-worker.js')
