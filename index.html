@@ -1,153 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CashFund Contractor</title>
-<style>
-  body, html {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #003333;
-    color: #ffffff;
-    display: flex;
-    align-items: flex-start; /* Changed from center to flex-start */
-    justify-content: center;
-    height: 100vh;
-    text-align: center;
-    padding-top: 100px; /* Big gap from the top */
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Progressive Web App</title>
 
-  .outer-container {
-    width: 90%;
-    max-width: 600px;
-    padding: 10px;
-    box-sizing: border-box;
-  }
+    <!-- Add a link to the manifest.json -->
+    <link rel="manifest" href="manifest.json">
 
-  .container {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ffffff; /* Small gap in the left, right, top, and bottom border */
-    box-sizing: border-box;
-  }
-
-  .box {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .img-div img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-  }
-
-  .video-div {
-    width: 100%;
-    margin: 20px 0;
-  }
-
-  .video-div iframe {
-    width: 100%;
-    height: 315px; /* Fixed dimensions similar to YouTube */
-  }
-
-  .description-div {
-    font-size: 1em;
-    font-weight: bold;
-    text-align: center;
-    margin: 20px 0;
-    padding: 10px;
-    box-sizing: border-box;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-  }
-
-  .text-div {
-    font-size: 1.5em;
-    font-weight: bold;
-    border: 5px solid #ffffff;
-    padding: 10px;
-    box-sizing: border-box;
-  }
-
-  .arrow {
-    font-size: 2em;
-    color: #ffffff;
-    margin: 10px 0;
-  }
-
-  .button-div a {
-    text-decoration: none;
-    background-color: #ffffff;
-    color: #003333;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 1em;
-    font-weight: bold;
-    transition: background-color 0.3s;
-  }
-
-  .button-div a:hover {
-    background-color: #cccccc;
-  }
-</style>
+    <!-- Add meta tags for mobile PWA behavior -->
+    <meta name="theme-color" content="#2d89ef">
+    <meta name="description" content="This is my Progressive Web App">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="My PWA">
 </head>
 <body>
-  <div class="outer-container">
-    <div class="container">
-      <!-- First Div with Image -->
-      <div class="box img-div">
-        <img src="cashfund.png" alt="Placeholder Image">
-      </div>
+    <h1>Welcome to My PWA</h1>
+    <p>This is a simple Progressive Web App example.</p>
 
-      <!-- Video Div -->
-      <div class="box video-div">
-        <iframe src="https://www.youtube.com/embed/srmIOC-D5uM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-
-      <!-- Description -->
-      <div class="box description-div">
-        Cashfund Contractors is a registered entity under the Legal Custody of Barrister Joy Chidimma Eze, a Recognised Legal Associate in Nigeria.<br><br>
-        A recognised member of CashFund Contractors help individuals turn their savings into an Investment that brings them regular income.<br><br>
-        The Investment Secrets of CashFund Contractors are legal and not disclosed to anyone unless he/she has passed through the registration process of being a CashFund Contractor.<br><br>
-        After the Registration Process, you get Trained on the CashFund Contractors Investment Secrets, Easy Way to Get Clients, and then, you are given the First Sales Target for a Month.<br><br>
-        After one month of your First Sales Target, the Administrator offers you CashFund Contractors Licence in accordance with our Legal Policy.<br><br>
-        So long as you have CashFund Contractors Licence, you get monthly payment (based on your sales target commissions) plus Allowances (as at the interests of the Administrator).
-      </div>
-
-      <!-- Second Div with Changing Text and White Border -->
-      <div class="box text-div" id="changingText">
-        Work For 30 Days
-      </div>
-
-      <!-- Arrow pointing down -->
-      <div class="arrow">&#8595;</div>
-
-      <!-- Third Div with Button -->
-      <div class="box button-div">
-        <a href="https://wa.link/jywpo7" target="_blank">Become a CashFund Contractor</a>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    const statements = [
-      "Work For 30 Days",
-      "Earn ₦One Million",
-      "Fund your Dreams"
-    ];
-    let index = 0;
-
-    setInterval(() => {
-      document.getElementById("changingText").innerText = statements[index];
-      index = (index + 1) % statements.length;
-    }, 3000);
-  </script>
+    <script>
+        // Register the service worker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js')
+            .then(registration => {
+                console.log('Service Worker registered with scope:', registration.scope);
+            })
+            .catch(error => {
+                console.error('Service Worker registration failed:', error);
+            });
+        }
+    </script>
 </body>
 </html>
