@@ -3,22 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Progressive Web App</title>
+    <title>BillionaireHK</title>
 
     <!-- Add a link to the manifest.json -->
     <link rel="manifest" href="manifest.json">
 
     <!-- Add meta tags for mobile PWA behavior -->
     <meta name="theme-color" content="#2d89ef">
-    <meta name="description" content="This is my Progressive Web App">
+    <meta name="description" content="Welcome to BillionaireHK">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="My PWA">
+    <meta name="apple-mobile-web-app-title" content="BillionaireHK">
+
+    <!-- Add custom styles -->
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: rgba(0, 0, 0, 0.8); /* Transparent shiny black background */
+            color: white;
+            text-align: center;
+            padding: 0 20px;
+        }
+        .container {
+            max-width: 400px;
+            width: 100%;
+        }
+        .logo {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            background-color: #e0245e;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+        }
+        .button:hover {
+            background-color: #d01f55;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to My PWA</h1>
-    <p>This is a simple Progressive Web App example.</p>
+    <div class="container">
+        <!-- Logo -->
+        <img src="billionairehk.png" alt="BillionaireHK Logo" class="logo">
+        
+        <!-- Buttons -->
+        <a href="/signin" class="button">Sign In</a>
+        <a href="/create-account" class="button">Create New Account</a>
+    </div>
 
     <script>
         // Register the service worker
