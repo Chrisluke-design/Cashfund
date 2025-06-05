@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fatimah Luxury Wears - Premium Apparels, Watches & Shoes</title>
-    <meta name="description" content="Discover premium female and male apparels, exquisite watches, and stylish shoes. Shop now on WhatsApp!" />
+    <title>Fatima Jeans - Denim for Everyone</title>
+    <meta name="description" content="Premium quality Fatima Jeans. Shop now on WhatsApp!" />
     <style>
         * {
             margin: 0;
@@ -46,7 +46,7 @@
             align-items: center;
             font-size: 1.125rem;
             font-weight: bold;
-            color: #8B4513; /* Brown for luxury */
+            color: #00008B; /* Royal Blue */
         }
 
         .logo svg {
@@ -80,7 +80,7 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, rgba(139, 69, 19, 0.1), rgba(255, 255, 255, 1), rgba(184, 134, 11, 0.1)); /* Gold/Brown gradient */
+            background: linear-gradient(135deg, rgba(0, 0, 139, 0.1), rgba(255, 255, 255, 1), rgba(65, 105, 225, 0.1)); /* Royal Blue gradient */
             padding: 3rem 0 6rem;
         }
 
@@ -94,7 +94,7 @@
             font-size: 3rem;
             font-weight: bold;
             margin-bottom: 1rem;
-            background: linear-gradient(135deg, #8B4513, #B8860B); /* Brown to Gold */
+            background: linear-gradient(135deg, #00008B, #4169E1); /* Royal Blue */
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -130,22 +130,22 @@
         }
 
         .btn-primary {
-            background: #8B4513; /* Brown */
+            background: #00008B; /* Royal Blue */
             color: white;
         }
 
         .btn-primary:hover {
-            background: #6D350F; /* Darker Brown */
+            background: #0000CD; /* Medium Blue */
         }
 
         .btn-outline {
             background: white;
-            color: #8B4513;
-            border: 1px solid #8B4513;
+            color: #00008B;
+            border: 1px solid #00008B;
         }
 
         .btn-outline:hover {
-            background: #FDF5E6; /* Light Gold */
+            background: #E0FFFF; /* Light Cyan */
         }
 
         .btn svg {
@@ -174,7 +174,7 @@
         .feature-icon {
             width: 3rem;
             height: 3rem;
-            background: #8B4513; /* Brown */
+            background: #00008B; /* Royal Blue */
             color: white;
             border-radius: 0.5rem;
             display: flex;
@@ -277,32 +277,45 @@
             font-size: 0.875rem;
         }
 
-        .size-buttons {
+        .quantity-widget {
             display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
+            align-items: center;
+            justify-content: center; /* Center the quantity widget */
+            gap: 1rem;
             margin-bottom: 1rem;
         }
 
-        .size-btn {
-            padding: 0.25rem 0.75rem;
-            background: white;
+        .quantity-btn {
+            width: 2rem;
+            height: 2rem;
+            background: #f3f4f6;
             border: 1px solid #d1d5db;
             border-radius: 0.25rem;
-            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: bold;
             cursor: pointer;
             transition: all 0.2s;
         }
 
-        .size-btn:hover {
-            background: #8B4513; /* Brown */
+        .quantity-btn:hover {
+            background: #00008B;
             color: white;
-            border-color: #8B4513;
+            border-color: #00008B;
+        }
+
+        .quantity-display {
+            font-size: 1rem;
+            font-weight: 500;
+            width: 2rem; /* Fixed width for alignment */
+            text-align: center;
         }
 
         .order-btn {
             width: 100%;
-            background: #B8860B; /* Darker Gold */
+            background: #00008B; /* Royal Blue */
             color: white;
             border: none;
             padding: 0.75rem;
@@ -316,7 +329,7 @@
         }
 
         .order-btn:hover {
-            background: #DAA520; /* Even Darker Gold */
+            background: #0000CD; /* Medium Blue */
         }
 
         .order-btn svg {
@@ -327,7 +340,7 @@
 
         /* CTA Section */
         .cta {
-            background: #8B4513; /* Brown */
+            background: #00008B; /* Royal Blue */
             color: white;
             padding: 4rem 0;
             text-align: center;
@@ -350,7 +363,7 @@
 
         .btn-secondary {
             background: white;
-            color: #8B4513;
+            color: #00008B;
         }
 
         .btn-secondary:hover {
@@ -398,13 +411,78 @@
         }
 
         .footer-contact:hover {
-            color: #8B4513;
+            color: #00008B;
         }
 
         .footer-contact svg {
             width: 1rem;
             height: 1rem;
             margin-right: 0.5rem;
+        }
+
+        /* Welcome Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transform: translateY(-50px);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .modal-content h2 {
+            color: #00008B;
+            margin-bottom: 1rem;
+        }
+
+        .modal-content p {
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        .modal-content input[type="tel"] {
+            width: calc(100% - 2rem);
+            padding: 0.75rem 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+            font-size: 1rem;
+        }
+
+        .modal-content .btn {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 0.375rem;
         }
 
         /* Responsive */
@@ -438,6 +516,15 @@
     </style>
 </head>
 <body>
+    <div class="modal-overlay" id="welcomeModal">
+        <div class="modal-content">
+            <h2>Welcome to Fatima Jeans!</h2>
+            <p>Enter your WhatsApp number to start shopping and get personalized assistance.</p>
+            <input type="tel" id="whatsappInput" placeholder="e.g., +234 810 329 0582" pattern="^\+?[0-9\s\-\(\)]{7,15}$" required>
+            <button class="btn btn-primary" onclick="proceedToShop()">Start Shopping</button>
+        </div>
+    </div>
+
     <header>
         <div class="container">
             <div class="header-content">
@@ -447,7 +534,7 @@
                         <line x1="3" y1="6" x2="21" y2="6"/>
                         <path d="M16 10a4 4 0 0 1-8 0"/>
                     </svg>
-                    Fatimah Luxury Wears
+                    Fatima Jeans
                 </div>
                 <a href="#" class="contact-btn" onclick="contactUs()">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -462,11 +549,11 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Elegance for Every Wardrobe</h1>
-                <p>Discover our exclusive collection of premium female and male apparels, exquisite watches, and stylish shoes.</p>
+                <h1>Your Perfect Denim Awaits</h1>
+                <p>Discover our comfortable and stylish Fatima Jeans for everyday wear.</p>
                 <div class="hero-buttons">
                     <a href="#products" class="btn btn-primary" onclick="scrollToProducts()">
-                        Shop Our Collection
+                        Shop Now
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
                             <line x1="3" y1="6" x2="21" y2="6"/>
@@ -496,8 +583,8 @@
                             <circle cx="18.5" cy="18.5" r="2.5"/>
                         </svg>
                     </div>
-                    <h3>Nationwide Delivery</h3>
-                    <p>Fast and reliable delivery to your doorstep, anywhere in Nigeria.</p>
+                    <h3>Fast Delivery</h3>
+                    <p>Quick delivery across Nigeria</p>
                 </div>
                 <div class="feature">
                     <div class="feature-icon">
@@ -505,8 +592,8 @@
                             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                         </svg>
                     </div>
-                    <h3>Authentic Quality</h3>
-                    <p>Only the finest materials and craftsmanship in every item.</p>
+                    <h3>Quality Denim</h3>
+                    <p>Durable and comfortable fabric</p>
                 </div>
                 <div class="feature">
                     <div class="feature-icon">
@@ -516,8 +603,8 @@
                             <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/>
                         </svg>
                     </div>
-                    <h3>Customer Satisfaction</h3>
-                    <p>Your happiness is our priority, with easy exchanges and support.</p>
+                    <h3>Easy Ordering</h3>
+                    <p>Seamless WhatsApp shopping experience</p>
                 </div>
             </div>
         </div>
@@ -526,8 +613,8 @@
     <section class="products" id="products">
         <div class="container">
             <div class="section-header">
-                <h2>Our Exquisite Collection</h2>
-                <p>Browse our curated selection of luxury apparels, watches, and shoes for men and women.</p>
+                <h2>Our Fatima Jeans</h2>
+                <p>Get your pair of Fatima Jeans today. Simple, stylish, and comfortable.</p>
             </div>
             <div class="products-grid" id="productsGrid">
                 </div>
@@ -536,8 +623,8 @@
 
     <section class="cta">
         <div class="container">
-            <h2>Ready to Elevate Your Style?</h2>
-            <p>Experience the luxury of Fatimah Luxury Wears. Place your order effortlessly on WhatsApp today!</p>
+            <h2>Ready to Get Your Jeans?</h2>
+            <p>Join satisfied customers. Order your Fatima Jeans easily on WhatsApp!</p>
             <a href="#" class="btn btn-secondary" onclick="contactUs()">
                 Start Shopping on WhatsApp
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -556,9 +643,9 @@
                         <line x1="3" y1="6" x2="21" y2="6"/>
                         <path d="M16 10a4 4 0 0 1-8 0"/>
                     </svg>
-                    Fatimah Luxury Wears
+                    Fatima Jeans
                 </div>
-                <p class="footer-text">© 2024 Fatimah Luxury Wears. All rights reserved.</p>
+                <p class="footer-text">© 2024 Fatima Jeans. All rights reserved.</p>
                 <a href="#" class="footer-contact" onclick="contactUs()">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
@@ -574,67 +661,65 @@
         const products = [
             {
                 id: 1,
-                name: "Elegant Female Gown",
-                price: "₦25,000",
-                image: "https://images.unsplash.com/photo-1620799140408-edc6dcd7dce9?w=400&h=400&fit=crop",
-                description: "Luxurious gown perfect for special occasions, available in various sizes.",
-                sizes: ["S", "M", "L", "XL"]
+                name: "Fatima Jeans",
+                price: "₦10,000",
+                image: "https://i.ibb.co/L519V34/jeans.png", /* New image link */
+                description: "Comfortable and stylish denim jeans."
             },
             {
                 id: 2,
-                name: "Stylish Male Suit",
-                price: "₦45,000",
-                image: "https://images.unsplash.com/photo-1596700072124-7f152345e55b?w=400&h=400&fit=crop",
-                description: "Sophisticated two-piece suit for a sharp and modern look.",
-                sizes: ["M", "L", "XL", "XXL"]
+                name: "Fatima Jeans",
+                price: "₦10,000",
+                image: "https://i.ibb.co/L519V34/jeans.png",
+                description: "Durable and classic fit jeans."
             },
             {
                 id: 3,
-                name: "Unisex Chronograph Watch",
-                price: "₦30,000",
-                image: "https://images.unsplash.com/photo-1622995874284-5f4007d4b4e7?w=400&h=400&fit=crop",
-                description: "Classic and versatile watch suitable for both men and women.",
-                sizes: ["One Size"]
+                name: "Fatima Jeans",
+                price: "₦10,000",
+                image: "https://i.ibb.co/L519V34/jeans.png",
+                description: "Everyday wear jeans for all."
             },
             {
                 id: 4,
-                name: "Premium Leather Loafers",
-                price: "₦20,000",
-                image: "https://images.unsplash.com/photo-1610476485542-a7f4a56a64a3?w=400&h=400&fit=crop",
-                description: "Handcrafted leather loafers for ultimate comfort and style.",
-                sizes: ["38", "39", "40", "41", "42", "43", "44"]
+                name: "Fatima Jeans",
+                price: "₦10,000",
+                image: "https://i.ibb.co/L519V34/jeans.png",
+                description: "Versatile denim for any occasion."
             },
             {
                 id: 5,
-                name: "Female Blouse & Skirt Set",
-                price: "₦18,000",
-                image: "https://images.unsplash.com/photo-1555529739-16a246872583?w=400&h=400&fit=crop",
-                description: "Chic and comfortable set for a modern and elegant look.",
-                sizes: ["S", "M", "L", "XL"]
-            },
-            {
-                id: 6,
-                name: "Men's Casual Polo Shirt",
-                price: "₦9,500",
-                image: "https://images.unsplash.com/photo-1596463999999-559d1a1c3272?w=400&h=400&fit=crop",
-                description: "Soft and breathable polo shirt for everyday casual wear.",
-                sizes: ["S", "M", "L", "XL", "XXL"]
+                name: "Fatima Jeans",
+                price: "₦10,000",
+                image: "https://i.ibb.co/L519V34/jeans.png",
+                description: "High-quality denim with a perfect fit."
             }
         ];
 
-        // WhatsApp number - REPLACE WITH YOUR ACTUAL NUMBER
-        const WHATSAPP_NUMBER = "2348103290582"; // Fatimah's WhatsApp number
+        // WhatsApp number
+        let userWhatsAppNumber = ""; // This will be set by the user
 
         // Functions
-        function handleWhatsAppOrder(product, size = null) {
-            const message = `Hi! I'd like to order:\n\nProduct: ${product.name}\nPrice: ${product.price}${size ? `\nSize: ${size}` : ''}\n\nPlease confirm availability and provide payment details.`;
-            const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+        function handleWhatsAppOrder(product, quantity) {
+            if (!userWhatsAppNumber) {
+                alert("Please enter your WhatsApp number first to proceed with the order.");
+                showWelcomeModal();
+                return;
+            }
+
+            const message = `Hi! I'd like to order:\n\nProduct: ${product.name}\nPrice: ${product.price}\nQuantity: ${quantity}\n\nPlease confirm availability and provide payment details.`;
+            const whatsappUrl = `https://wa.me/${userWhatsAppNumber}?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
         }
 
         function contactUs() {
+            if (!userWhatsAppNumber) {
+                alert("Please enter your WhatsApp number first to contact us.");
+                showWelcomeModal();
+                return;
+            }
             const message = `Hi! I'd like to know more about your products and services.`;
-            const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+            const whatsappUrl = `https://wa.me/${userWhatsAppNumber}?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
         }
 
@@ -658,12 +743,12 @@
                             <span class="product-price">${product.price}</span>
                         </div>
                         <p class="product-description">${product.description}</p>
-                        <div class="size-buttons">
-                            ${product.sizes.map(size => 
-                                `<button class="size-btn" onclick="handleWhatsAppOrder(${JSON.stringify(product).replace(/"/g, '&quot;')}, '${size}')">${size}</button>`
-                            ).join('')}
+                        <div class="quantity-widget">
+                            <button class="quantity-btn" onclick="decreaseQuantity(${product.id})">-</button>
+                            <span class="quantity-display" id="qty-${product.id}">1</span>
+                            <button class="quantity-btn" onclick="increaseQuantity(${product.id})">+</button>
                         </div>
-                        <button class="order-btn" onclick="handleWhatsAppOrder(${JSON.stringify(product).replace(/"/g, '&quot;')})">
+                        <button class="order-btn" onclick="orderProduct(${product.id})">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
                             </svg>
@@ -676,9 +761,58 @@
             });
         }
 
+        function increaseQuantity(productId) {
+            const qtyDisplay = document.getElementById(`qty-${productId}`);
+            let currentQty = parseInt(qtyDisplay.textContent);
+            qtyDisplay.textContent = currentQty + 1;
+        }
+
+        function decreaseQuantity(productId) {
+            const qtyDisplay = document.getElementById(`qty-${productId}`);
+            let currentQty = parseInt(qtyDisplay.textContent);
+            if (currentQty > 1) {
+                qtyDisplay.textContent = currentQty - 1;
+            }
+        }
+
+        function orderProduct(productId) {
+            const product = products.find(p => p.id === productId);
+            const quantity = parseInt(document.getElementById(`qty-${productId}`).textContent);
+            handleWhatsAppOrder(product, quantity);
+        }
+
+        function showWelcomeModal() {
+            document.getElementById('welcomeModal').classList.add('active');
+        }
+
+        function hideWelcomeModal() {
+            document.getElementById('welcomeModal').classList.remove('active');
+        }
+
+        function proceedToShop() {
+            const input = document.getElementById('whatsappInput');
+            const whatsappNumber = input.value.trim();
+
+            if (whatsappNumber === "") {
+                alert("Please enter your WhatsApp number.");
+                return;
+            }
+            
+            // Basic validation for WhatsApp number format
+            const whatsappPattern = /^\+?[0-9\s\-\(\)]{7,15}$/;
+            if (!whatsappPattern.test(whatsappNumber)) {
+                alert("Please enter a valid WhatsApp number (e.g., +2348103290582).");
+                return;
+            }
+
+            userWhatsAppNumber = whatsappNumber.replace(/\s/g, ''); // Remove spaces
+            hideWelcomeModal();
+        }
+
         // Initialize the page
         document.addEventListener('DOMContentLoaded', function() {
             renderProducts();
+            showWelcomeModal(); // Show modal on page load
             
             // Add smooth scrolling to all anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -692,11 +826,8 @@
                     }
                 });
             });
-        });
 
-        // Add some interactive features
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add loading animation
+            // Add loading animation for product cards
             const productCards = document.querySelectorAll('.product-card');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -707,7 +838,6 @@
                 });
             });
 
-            // Initially hide cards for animation
             setTimeout(() => {
                 productCards.forEach(card => {
                     card.style.opacity = '0';
